@@ -17,7 +17,23 @@ namespace E_Commerce.Controllers
         {
             IEnumerable<Categoria> lista = _db.Categoria;
 
+            return View(lista);
+        }
+
+        //Get
+        public IActionResult Crear()
+        {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Crear(Categoria categoria)
+        {
+            _db.Categoria.Add(categoria);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
