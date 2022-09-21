@@ -36,10 +36,15 @@ namespace E_Commerce.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Crear(TipoAplicacion tipoAplicacion)
         {
-            _db.TipoAplicacion.Add(tipoAplicacion);
-            _db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _db.TipoAplicacion.Add(tipoAplicacion);
+                _db.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+       
+            return View(tipoAplicacion);
         }
 
     }

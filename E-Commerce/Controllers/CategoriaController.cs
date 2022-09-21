@@ -30,10 +30,15 @@ namespace E_Commerce.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Crear(Categoria categoria)
         {
-            _db.Categoria.Add(categoria);
-            _db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _db.Categoria.Add(categoria);
+                _db.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            return View(categoria);
         }
     }
 }

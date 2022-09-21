@@ -7,6 +7,9 @@
 
 <form method="post" asp-action="Crear">
     <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+
+        </div>
         <div class="form-group row">
             <h2 class="text-info pl-3">Nueva Categoria</h2>
         </div>
@@ -16,12 +19,14 @@
                 <div class="col-md-6">
                     <label asp-for="NombreCategoria" class="form-label">Nombre Categoria</label>
                     <input asp-for="NombreCategoria" class="form-control" />
+                    <span asp-validation-for="NombreCategoria" class="text-danger"></span>
                 </div>
             </div>
                  <div class="row">
                     <div class="col-md-6">
                         <label asp-for="MostrarOrden" class="form-label">Mostrar Orden</label>
                         <input asp-for="MostrarOrden" class="form-control" />
+                        <span asp-validation-for="MostrarOrden" class="text-danger"></span>
                     </div>
             </div>
             <br/>
@@ -36,3 +41,8 @@
 
 </form>
 
+@*Validado por parte del cliente*@
+
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial"></partial>}
+}

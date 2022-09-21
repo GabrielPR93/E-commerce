@@ -7,6 +7,7 @@ namespace E_Commerce.Models
         [Key]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Nombre Obligatorio")]
         public string Nombre { get; set; }
     }
 }
