@@ -19,6 +19,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/gabri/source/repos/E-Commerce/E-Commerce/Views/Categoria/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/source/repos/E-Commerce/E-Commerce/Views/Categoria/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVsaW1pbmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gabri/source/repos/E-Commerce/E-Commerce/Views/Categoria/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +49,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gabri/source/repos/E-Commerce/E-Commerce/Views/TipoAplicacion/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0FwbGljYWNpb25cQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/source/repos/E-Commerce/E-Commerce/Views/TipoAplicacion/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0FwbGljYWNpb25cRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gabri/source/repos/E-Commerce/E-Commerce/Views/TipoAplicacion/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0FwbGljYWNpb25cRWxpbWluYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gabri/source/repos/E-Commerce/E-Commerce/Views/TipoAplicacion/Index.cshtml]
