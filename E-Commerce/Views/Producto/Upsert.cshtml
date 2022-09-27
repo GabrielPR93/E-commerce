@@ -45,7 +45,7 @@
                              <div class="row">
                             <div class="col-md-6">
                                 <label asp-for="producto.DescripcionProducto" class="form-label">Descripcion del Producto</label>
-                                <input asp-for="producto.DescripcionProducto" class="form-control"/>
+                                <textarea asp-for="producto.DescripcionProducto" class="form-control summernote"></textarea>
                                 <span asp-validation-for="producto.DescripcionProducto" class="text-danger"></span>
                             </div>
                         </div>
@@ -54,6 +54,7 @@
                             <div class="col-md-6">
                                 <label asp-for="producto.ImagenUrl" class="form-label">Imagen</label>
                                 <input type="file" name="files" id="ImagenId" class="form-control"/>
+                               
                             </div>
                         </div>
 
@@ -61,41 +62,62 @@
                             <div class="col-md-6">
                                 <label asp-for="producto.CategoriaId" class="form-label">Categoria</label>
                                 <select asp-for="producto.CategoriaId" asp-items="@Model.CategoriaLista" class="form-select">
-                                    <option disabled selected>--> Seleccione una categoria <--</option>
+                                    <option disabled selected>--> Seleccione una categoria </option>
                                 </select>
                             </div>
                         </div>
-
+                        
                              <div class="row">
                             <div class="col-md-6">
                                 <label asp-for="producto.TipoAplicacionId" class="form-label">Tipo de Aplicacion</label>
                                 <select asp-for="producto.TipoAplicacionId" asp-items="@Model.TipoAplicacionLista" class="form-select">
-                                    <option disabled selected>--> Seleccione un Tipo <--</option>
+                                    <option disabled selected>--> Seleccione un Tipo </option>
                                 </select>
                             </div>
                         </div>
 
 
-                        <br />
-
+                        </br>
+                       
                         <div class="d-grid gap-2 d-md-block">
                             @if(Model.producto.Id != 0){
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                             }
                             else
                             {
-                                <button type="submit" class="btn btn-primary">Crear Nuevo</button>
+                                <button type="submit" onclick="return validarImagen()" class="btn btn-primary">Crear Nuevo</button>
                             }
                             <a asp-controller="Producto" asp-action="Index" class="btn btn-success">Regresar</a>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-     
     </div>
-
-
-
 </form>
+
+ @*   Validacion de Imagen*@
+@section Scripts {
+         @{ <partial name="_ValidationScriptsPartial"/>}
+
+    <script>
+        //Usar clase summernote
+        $(document).ready(function() {
+            $('.summernote').summernote({
+                height:250
+            });
+        });
+        
+        function validarImagen() { 
+            if (document.getElementById("ImagenId").value=="") {
+                
+                swal("Error","Seleccione una imagen","error");
+               
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
+     
 

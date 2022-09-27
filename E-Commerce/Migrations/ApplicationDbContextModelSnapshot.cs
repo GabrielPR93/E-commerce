@@ -52,14 +52,15 @@ namespace E_Commerce.Migrations
                     b.Property<int>("CategoriaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DescripcionCorta")
-                        .HasColumnType("int");
+                    b.Property<string>("DescripcionCorta")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DescripcionProducto")
-                        .HasColumnType("int");
+                    b.Property<string>("DescripcionProducto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImagenUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreProducto")

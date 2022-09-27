@@ -6,8 +6,8 @@ namespace E_Commerce.Models.ViewModels
     {
         public Producto producto { get; set; }
 
-        public IEnumerable<SelectListItem> CategoriaLista { get; set; }
+        public IEnumerable<SelectListItem>? CategoriaLista { get; set; }
 
-        public IEnumerable<SelectListItem> TipoAplicacionLista { get; set; }
+        public IEnumerable<SelectListItem>? TipoAplicacionLista { get; set; }
     }
 }

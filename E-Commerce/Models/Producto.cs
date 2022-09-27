@@ -13,16 +13,16 @@ namespace E_Commerce.Models
         public string NombreProducto { get; set; }
 
         [Required(ErrorMessage = "Descripcion corta necesaria")]
-        public int DescripcionCorta { get; set; }
+        public string DescripcionCorta { get; set; }
 
         [Required(ErrorMessage = "Descripcion del producto necesaria")]
-        public int DescripcionProducto { get; set; }
+        public string DescripcionProducto { get; set; }
 
         [Required(ErrorMessage = "Precio necesario")]
         [Range(1,int.MaxValue,ErrorMessage = "El precio debe ser mayor de 0")]
         public double Precio { get; set; }
 
-        public string ImagenUrl { get; set; }
+        public string? ImagenUrl { get; set; }
 
         //Foreign Key
 
@@ -30,9 +30,9 @@ namespace E_Commerce.Models
         public int TipoAplicacionId { get; set; }
 
         [ForeignKey("CategoriaId")]
-        public virtual Categoria Categoria { get; set; }
+        public virtual Categoria? Categoria { get; set; }
 
         [ForeignKey("TipoAplicacionId")]
-        public virtual TipoAplicacion TipoAplicacion { get; set; }
+        public virtual TipoAplicacion? TipoAplicacion { get; set; }
     }
 }

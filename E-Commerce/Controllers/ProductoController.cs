@@ -11,10 +11,12 @@ namespace E_Commerce.Controllers
     {
 
         private readonly ApplicationDbContext _db;
+        private readonly IWebHostEnvironment _webHostEnvironments;
 
-        public ProductoController(ApplicationDbContext db)
+        public ProductoController(ApplicationDbContext db, IWebHostEnvironment webHostEnvironment)
         {
             _db = db;
+            _webHostEnvironments = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -70,5 +72,44 @@ namespace E_Commerce.Controllers
                 return View(productoVM);
             }
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Upsert(ProductoVM productoVM) {
+
+            if (ModelState.IsValid)
+            {
+                var files = HttpContext.Request.Form.Files;
+                string webRootPath = _webHostEnvironments.WebRootPath;
+
+                if (productoVM.producto.Id == 0)
+                {
+                    //Se crea
+                    string upload = webRootPath + WC.ImagenRuta;
+                    string fileName = Guid.NewGuid().ToString();
+                    string extension = Path.GetExtension(files[0].FileName);
+
+                    using (var filesStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
+                    {
+                        files[0].CopyTo(filesStream);
+                    }
+
+                    productoVM.producto.ImagenUrl = fileName + extension;
+                    _db.Producto.Add(productoVM.producto);
+                }
+                else
+                {
+                    //Actualizar
+                }
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(productoVM);
+
+
+          
+
+        }
+        
     }
 }
