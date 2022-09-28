@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nu7tZ9QAYc2OwUFqg/yFEkCuTSI9PW/cz7Q0K5Xy3MI=",
+  "Hash": "7FfPb6tqEwAJapHBhV8u3DW4/KBKOnkTU01JGD4UL6M=",
   "Source": "E-Commerce",
   "BasePath": "_content/E-Commerce",
   "Mode": "Default",
@@ -35868,6 +35868,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fontawesome\\webfonts\\fa-v4compatibility.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\gabri\\source\\repos\\E-Commerce\\E-Commerce\\wwwroot\\imagenes\\producto\\0d840cab-b99f-4f81-8d2f-6ff1510a3067.jpg",
+      "SourceId": "E-Commerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\source\\repos\\E-Commerce\\E-Commerce\\wwwroot\\",
+      "BasePath": "_content/E-Commerce",
+      "RelativePath": "imagenes/producto/0d840cab-b99f-4f81-8d2f-6ff1510a3067.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\producto\\0d840cab-b99f-4f81-8d2f-6ff1510a3067.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\gabri\\source\\repos\\E-Commerce\\E-Commerce\\wwwroot\\imagenes\\producto\\3a39f423-4337-4c13-ae85-9ab9868464bf.webp",
+      "SourceId": "E-Commerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gabri\\source\\repos\\E-Commerce\\E-Commerce\\wwwroot\\",
+      "BasePath": "_content/E-Commerce",
+      "RelativePath": "imagenes/producto/3a39f423-4337-4c13-ae85-9ab9868464bf.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\producto\\3a39f423-4337-4c13-ae85-9ab9868464bf.webp"
     },
     {
       "Identity": "C:\\Users\\gabri\\source\\repos\\E-Commerce\\E-Commerce\\wwwroot\\js\\site.js",

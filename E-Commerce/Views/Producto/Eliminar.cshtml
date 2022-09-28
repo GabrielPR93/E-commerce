@@ -1,0 +1,96 @@
+﻿@model E_Commerce.Models.ViewModels.ProductoVM
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Eliminar" enctype="multipart/form-data">
+  
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <h2 class="text-info">Estás seguro de eliminar este producto?</h2>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label asp-for="producto.NombreProducto" disabled class="form-label">Nombre Producto</label>
+                                <input asp-for="producto.NombreProducto" disabled class="form-control"/>
+                                <span asp-validation-for="producto.NombreProducto" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label asp-for="producto.Precio" disabled class="form-label">Precio</label>
+                                <input asp-for="producto.Precio" disabled class="form-control"/>
+                                <span asp-validation-for="producto.Precio" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                             <div class="row">
+                            <div class="col-md-6">
+                                <label asp-for="producto.DescripcionCorta" disabled class="form-label">Descripcion corta</label>
+                                <input asp-for="producto.DescripcionCorta" disabled class="form-control"/>
+                                <span asp-validation-for="producto.DescripcionCorta" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                             <div class="row">
+                            <div class="col-md-6">
+                                <label asp-for="producto.DescripcionProducto" disabled class="form-label">Descripcion del Producto</label>
+                                <textarea asp-for="producto.DescripcionProducto" disabled class="form-control summernote"></textarea>
+                                <span asp-validation-for="producto.DescripcionProducto" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                             <div class="row">
+                            <div class="col-md-6">
+                                <label asp-for="producto.ImagenUrl" disabled class="form-label">Imagen</label>
+                                <input type="file" name="files" id="ImagenId" disabled class="form-control"/>
+                               
+                            </div>
+                        </div>
+
+                               <div class="row">
+                            <div class="col-md-6">
+                                <label asp-for="producto.CategoriaId" disabled class="form-label">Categoria</label>
+                                <select asp-for="producto.CategoriaId" disabled asp-items="@Model.CategoriaLista" class="form-select">
+                                    <option disabled selected>--> Seleccione una categoria </option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                             <div class="row">
+                            <div class="col-md-6">
+                                <label asp-for="producto.TipoAplicacionId" disabled class="form-label">Tipo de Aplicacion</label>
+                                <select asp-for="producto.TipoAplicacionId" disabled asp-items="@Model.TipoAplicacionLista" class="form-select">
+                                    <option disabled selected>--> Seleccione un Tipo </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        </br>
+                       
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="submit" class="btn btn-danger">Eliminar </button>
+                            <a asp-controller="Producto" asp-action="Index" class="btn btn-success">Regresar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                @if (Model.producto.Id != 0)
+                {
+                     <img src="@WC.ImagenRuta@Model.producto.ImagenUrl" width="500" style="border-radius:5px; border:1px solid #bbb" />
+                }
+
+                </div>
+            </div>
+
+          
+
+    </div>
+</form>

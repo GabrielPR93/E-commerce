@@ -100,16 +100,86 @@ namespace E_Commerce.Controllers
                 else
                 {
                     //Actualizar
+                    var objProducto = _db.Producto.AsNoTracking().FirstOrDefault(p => p.Id == productoVM.producto.Id);
+
+                    //Si carga una nueva imagen
+                    if (files.Count > 0)
+                    {
+                        string upload = webRootPath + WC.ImagenRuta;
+                        string fileName = Guid.NewGuid().ToString();
+                        string extension = Path.GetExtension(files[0].FileName);
+
+                        //Se borra la imagen anterior
+                        var anteriorFile = Path.Combine(upload, objProducto.ImagenUrl);
+                        if (System.IO.File.Exists(anteriorFile))
+                        {
+                            System.IO.File.Delete(anteriorFile);
+                        }
+
+                        using (var filesStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
+                        {
+                            files[0].CopyTo(filesStream);
+                        }
+
+                        productoVM.producto.ImagenUrl = fileName + extension;
+                    }
+                    else 
+                    {
+                        productoVM.producto.ImagenUrl = objProducto.ImagenUrl;
+                    }
+                    _db.Producto.Update(productoVM.producto);
                 }
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            // Si el Modelo no es valido se llenan nuevamente las listas
+
+            productoVM.CategoriaLista = _db.Categoria.Select(c => new SelectListItem
+            {
+                Text = c.NombreCategoria,
+                Value = c.Id.ToString()
+            });
+            productoVM.TipoAplicacionLista = _db.TipoAplicacion.Select(c => new SelectListItem
+            {
+                Text = c.Nombre,
+                Value = c.Id.ToString()
+            });
+
             return View(productoVM);
-
-
-          
-
         }
-        
+
+
+        //public IActionResult Eliminar(int? Id)
+        //{
+        //    if (Id == null || Id == 0)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var obj = _db.Producto.Find(Id);
+
+        //    if (obj == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(obj);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Eliminar(ProductoVM productoVM)
+        //{
+        //    if (productoVM.producto == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    _db.Producto.Remove(productoVM.producto);
+        //    _db.SaveChanges();
+
+        //    return RedirectToAction("Index");
+
+        //}
+
     }
 }

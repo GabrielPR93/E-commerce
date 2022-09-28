@@ -91,7 +91,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-4">
+                @if (Model.producto.Id != 0)
+                {
+                     <img src="@WC.ImagenRuta@Model.producto.ImagenUrl" width="500" style="border-radius:5px; border:1px solid #bbb" />
+                }
+
+                </div>
             </div>
+
+          
 
     </div>
 </form>
