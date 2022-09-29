@@ -8,6 +8,7 @@
     @if (Model.producto.Id != 0 )
     {
         titulo = "Editar Producto";
+        <input asp-for="producto.Id" hidden />
         
     }
     <div class="border p-3">
@@ -16,10 +17,10 @@
                 <h2 class="text-info">@titulo</h2>
             </div>
             <div class="row">
-                <div class="col-8">
+                <div class="col-7">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <label asp-for="producto.NombreProducto" class="form-label">Nombre Producto</label>
                                 <input asp-for="producto.NombreProducto" class="form-control"/>
                                 <span asp-validation-for="producto.NombreProducto" class="text-danger"></span>
@@ -27,7 +28,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <label asp-for="producto.Precio" class="form-label">Precio</label>
                                 <input asp-for="producto.Precio" class="form-control"/>
                                 <span asp-validation-for="producto.Precio" class="text-danger"></span>
@@ -35,7 +36,7 @@
                         </div>
 
                              <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <label asp-for="producto.DescripcionCorta" class="form-label">Descripcion corta</label>
                                 <input asp-for="producto.DescripcionCorta" class="form-control"/>
                                 <span asp-validation-for="producto.DescripcionCorta" class="text-danger"></span>
@@ -43,7 +44,7 @@
                         </div>
 
                              <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <label asp-for="producto.DescripcionProducto" class="form-label">Descripcion del Producto</label>
                                 <textarea asp-for="producto.DescripcionProducto" class="form-control summernote"></textarea>
                                 <span asp-validation-for="producto.DescripcionProducto" class="text-danger"></span>
@@ -51,7 +52,7 @@
                         </div>
 
                              <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <label asp-for="producto.ImagenUrl" class="form-label">Imagen</label>
                                 <input type="file" name="files" id="ImagenId" class="form-control"/>
                                
@@ -59,7 +60,7 @@
                         </div>
 
                                <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <label asp-for="producto.CategoriaId" class="form-label">Categoria</label>
                                 <select asp-for="producto.CategoriaId" asp-items="@Model.CategoriaLista" class="form-select">
                                     <option disabled selected>--> Seleccione una categoria </option>
@@ -68,7 +69,7 @@
                         </div>
                         
                              <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <label asp-for="producto.TipoAplicacionId" class="form-label">Tipo de Aplicacion</label>
                                 <select asp-for="producto.TipoAplicacionId" asp-items="@Model.TipoAplicacionLista" class="form-select">
                                     <option disabled selected>--> Seleccione un Tipo </option>
@@ -94,18 +95,15 @@
                 <div class="col-4">
                 @if (Model.producto.Id != 0)
                 {
-                     <img src="@WC.ImagenRuta@Model.producto.ImagenUrl" width="500" style="border-radius:5px; border:1px solid #bbb" />
+                     <img src="@WC.ImagenRuta@Model.producto.ImagenUrl" width="100%" style="border-radius:5px; border:1px solid #bbb" />
                 }
 
                 </div>
             </div>
-
-          
-
     </div>
 </form>
 
- @*   Validacion de Imagen*@
+ 
 @section Scripts {
          @{ <partial name="_ValidationScriptsPartial"/>}
 
@@ -116,7 +114,7 @@
                 height:250
             });
         });
-        
+        @*   Validacion de Imagen*@
         function validarImagen() { 
             if (document.getElementById("ImagenId").value=="") {
                 

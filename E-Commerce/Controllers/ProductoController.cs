@@ -149,37 +149,49 @@ namespace E_Commerce.Controllers
         }
 
 
-        //public IActionResult Eliminar(int? Id)
-        //{
-        //    if (Id == null || Id == 0)
-        //    {
-        //        return NotFound();
-        //    }
+        public IActionResult Eliminar(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
 
-        //    var obj = _db.Producto.Find(Id);
+            Producto producto = _db.Producto.Include(c => c.Categoria)
+                                            .Include(t => t.TipoAplicacion)
+                                            .FirstOrDefault(p => p.Id==Id);
 
-        //    if (obj == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (producto == null)
+            {
+                return NotFound();
+            }
 
-        //    return View(obj);
-        //}
+            return View(producto);
+        }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult Eliminar(ProductoVM productoVM)
-        //{
-        //    if (productoVM.producto == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    _db.Producto.Remove(productoVM.producto);
-        //    _db.SaveChanges();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Eliminar(Producto producto)
+        {
+            if (producto == null)
+            {
+                return NotFound();
+            }
+            //Eliminar imagen
+            string upload = _webHostEnvironments.WebRootPath + WC.ImagenRuta;
+         
+            var anteriorFile = Path.Combine(upload, producto.ImagenUrl);
+            if (System.IO.File.Exists(anteriorFile))
+            {
+                System.IO.File.Delete(anteriorFile);
+            }
 
-        //    return RedirectToAction("Index");
+            //Eliminar producto
+            _db.Producto.Remove(producto);
+            _db.SaveChanges();
 
-        //}
+            return RedirectToAction("Index");
+
+        }
 
     }
 }
